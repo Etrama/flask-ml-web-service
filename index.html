@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Titanic Survival</title>
+  <style>
+    .form-row {
+      display: flex;
+      align-items: center;
+    }
+
+    .field-label {
+      margin-right: 10px;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var embarkedS = document.getElementById("embarked_s_true").checked;
+      var embarkedQ = document.getElementById("embarked_q_true").checked;
+      
+      if (embarkedS && embarkedQ) {
+        alert("Invalid selection: Both 'Embarked_S' and 'Embarked_Q' cannot be 'True' at the same time.");
+        return false;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Would you survive the Titanic? Find out by filling a simple form 😃</h1>
+  <form onsubmit="return validateForm()">
+    <div class="form-row">
+      <span class="field-explanation">Enter your age in years (0 - 80).</span>
+    </div>
+    <div class="form-row">
+      <label for="age" class="field-label">Age:</label>
+      <input type="number" id="age" name="age" min="0" max="80" required>
+    </div><br>
+
+    <div class="form-row">
+      <span class="field-explanation">Select 'True' if you boarded the Titanic from Queenstown, otherwise select 'False'.</span>
+    </div>
+    <div class="form-row">
+      <label class="field-label">Embarked_Q:</label>
+      <input type="radio" id="embarked_q_true" name="embarked_q" value="true">
+      <label for="embarked_q_true">True</label>
+      <input type="radio" id="embarked_q_false" name="embarked_q" value="false" checked>
+      <label for="embarked_q_false">False</label>
+    </div><br>
+
+    <div class="form-row">
+      <span class="field-explanation">Select 'True' if you boarded the Titanic from Southampton, otherwise select 'False'.</span>
+    </div>
+    <div class="form-row">
+      <label class="field-label">Embarked_S:</label>
+      <input type="radio" id="embarked_s_true" name="embarked_s" value="true">
+      <label for="embarked_s_true">True</label>
+      <input type="radio" id="embarked_s_false" name="embarked_s" value="false" checked>
+      <label for="embarked_s_false">False</label>
+    </div><br>
+
+    <div class="form-row">
+      <span class="field-explanation">Enter the fare amount you paid for your Titanic ticket (0 - 513).</span>
+    </div>
+    <div class="form-row">
+      <label for="fare" class="field-label">Fare:</label>
+      <input type="number" id="fare" name="fare" min="0" max="513" required>
+    </div><br>
+
+    <div class="form-row">
+      <span class="field-explanation">Specify the number of parents or children you had aboard the Titanic (0 - 6).</span>
+    </div>
+    <div class="form-row">
+      <label for="parch" class="field-label">Parch:</label>
+      <input type="number" id="parch" name="parch" min="0" max="6" required>
+    </div><br>
+
+    <div class="form-row">
+      <span class="field-explanation">Select your passenger class: 1 for First class, 2 for Second class, or 3 for Third class.</span>
+    </div>
+    <div class="form-row">
+      <label for="pclass" class="field-label">Pclass:</label>
+      <input type="number" id="pclass" name="pclass" min="1" max="3" required>
+    </div><br>
+
+    <div class="form-row">
+      <span class="field-explanation">Specify the number of siblings or spouses you had aboard the Titanic (0 - 5).</span>
+    </div>
+    <div class="form-row">
+      <label for="sibsp" class="field-label">SibSp:</label>
+      <input type="number" id="sibsp" name="sibsp" min="0" max="5" required>
+    </div><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
